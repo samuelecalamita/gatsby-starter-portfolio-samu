@@ -63,7 +63,8 @@ const Index = () => (
     <Parallax pages={3}>
       <Hero offset={0}>
         <BigTitle>
-          Hello, <br /> I'm Samuele Calamita.
+          Hello,
+          <br /> I'm Samuele Calamita.
         </BigTitle>
         <Subtitle>
           Frontend Development macht mir einfach Spaß und glücklich. Ich brenne
