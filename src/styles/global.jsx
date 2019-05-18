@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #161719;
+    background-color: #010157;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -21,9 +21,31 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   a {
-    color: #e07628;
+    color: #51e334;
     text-decoration: none;
-  }
-`
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      max-width: 160px;
+      height: 50%;
+      background: rgba(255,255,255,0.45);
+      transition: all 0.3s ease-in-out;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
 
-export default GlobalStyle
+    &:hover,
+    &:focus {
+      &:before {
+        transform: scaleX(1);
+      }
+    }
+  }
+`;
+
+export default GlobalStyle;
