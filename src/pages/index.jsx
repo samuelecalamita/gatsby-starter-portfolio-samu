@@ -49,7 +49,7 @@ const AboutSubtitle = styled.h3`
 `;
 
 const AboutDesc = styled.p`
-  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans text-justify`};
+  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans`};
 `;
 
 const ContactText = styled.p`
@@ -94,19 +94,20 @@ const Index = () => (
             </a>
             .
           </AboutSub>
+
+          <AboutSubtitle>Meine Skills</AboutSubtitle>
+          <AboutDesc>
+            <strong>Semantisches HTML</strong> (Jade, Pug, AMP Grundlagen),{" "}
+            <strong>CSS</strong> (Sass, Scss, Less, BEM, CSS Animationen),{" "}
+            <strong>Javascript</strong> (jQuery, ES6, React Grundlagen, GatsbyJS
+            Grundlagen), <strong>SVG</strong>, <strong>Accessibility</strong>,{" "}
+            <strong>Responsive-Verhalten</strong>,{" "}
+            <strong>Frontend-Frameworks</strong> (Bootstrap 3 und 4, Foundation,
+            Foundation for Emails), <strong>Task Runner</strong> (Grunt, Gulp),{" "}
+            <strong>Sonstige Kenntnisse</strong> Sketch, InVision, Scrum
+            Grundlagen, Jira, Confluence.
+          </AboutDesc>
         </AboutHero>
-        <AboutSubtitle>Meine Skills</AboutSubtitle>
-        <AboutDesc>
-          <strong>Semantisches HTML</strong> (Jade, Pug, AMP Grundlagen),{" "}
-          <strong>CSS</strong> (Sass, Scss, Less, BEM, CSS Animationen){" "}
-          <strong>Javascript</strong> (jQuery, ES6, React Grundlagen, GatsbyJS
-          Grundlagen) <strong>SVG</strong>, <strong>Accessibility</strong>,{" "}
-          <strong>Responsive-Verhalten</strong>,{" "}
-          <strong>Frontend-Frameworks</strong> (Bootstrap 3 und 4, Foundation,
-          Foundation for Emails) <strong>Task Runner</strong> (Grunt, Gulp){" "}
-          <strong>Sonstige Kenntnisse</strong> Sketch (Asset Management,
-          InVision, Scrum Grundlagen, Jira, Confluence)
-        </AboutDesc>
       </About>
       <Contact offset={2}>
         <Inner>

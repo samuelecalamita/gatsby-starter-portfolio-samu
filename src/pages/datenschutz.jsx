@@ -32,7 +32,7 @@ const Index = () => (
         <Layout />
         <ImpressumText>
           <Link to="/">Zurück</Link>
-          <BigTitle>Datenschutz&shy;erkl&auml;rung</BigTitle>
+          <BigTitle>Daten&shy;schutz&shy;erkl&auml;rung</BigTitle>
           <h2>1. Datenschutz auf einen Blick</h2>
           <h3>Allgemeine Hinweise</h3>{" "}
           <p>
