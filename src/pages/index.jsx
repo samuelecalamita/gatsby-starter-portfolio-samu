@@ -16,8 +16,6 @@ import Hero from "../views/Hero";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
-import avatar from "../images/beard.svg";
-
 const ProjectsWrapper = styled.div`
   ${tw`flex flex-wrap justify-between mt-8`};
   display: grid;
@@ -34,10 +32,6 @@ const ProjectsWrapper = styled.div`
 
 const AboutHero = styled.div`
   ${tw`mt-8`};
-`;
-
-const Avatar = styled.img`
-  ${tw`rounded-full w-32 xl:w-48 h-auto`};
 `;
 
 const AboutSub = styled.p`
@@ -80,7 +74,6 @@ const Index = () => (
       <About offset={1}>
         <Title>About</Title>
         <AboutHero>
-          {/* <Avatar src={avatar} alt="Samuele Calamita Bild" /> */}
           <AboutSub>
             Hi, ich bin Samuele. Ich komme aus Italien und lebe seit mehr als 5
             Jahren mit meiner Frau und unserem Kater Loui in Berlin. Derzeit
