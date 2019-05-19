@@ -71,9 +71,9 @@ const Index = () => (
           Frontend Developer
         </BigTitle>
         <Subtitle>
-          Let's chat:{" "}
-          <a href="mailto:hi@samuelecalamita.de" title="Let´s chat!">
-            hi@samuelecalamita.de
+          Let's{" "}
+          <a href="mailto:samuelecalamita@gmail.com" title="Let´s chat!">
+            chat
           </a>
         </Subtitle>
       </Hero>
