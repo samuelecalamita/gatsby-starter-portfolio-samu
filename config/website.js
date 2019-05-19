@@ -9,7 +9,7 @@ module.exports = {
   siteHeadline: "Samuele Calamita Frontend Berlin", // Headline for schema.org JSONLD
   siteUrl: "https://quirky-jang-07dbfa.netlify.com/", // Domain of your site. No trailing slash!
   siteLanguage: "de", // Language Tag on <html> element
-  siteLogo: "/logo.png", // Used for SEO and manifest
+  siteLogo: "/avatar.jpg", // Used for SEO and manifest
   siteDescription: "Fronted Developer Entwickler Berlin",
   author: "Samuele Calamita", // Author for schema.org JSONLD
 
@@ -17,7 +17,7 @@ module.exports = {
   userTwitter: "@samuelecalamita", // Twitter Username
   ogSiteName: "samuelecalamita", // Facebook Site Name
   ogLanguage: "de_DE", // Facebook Language
-  //googleAnalyticsID: "UA-47519312-5",
+  //googleAnalyticsID: "",
 
   // Manifest and Progress color
   themeColor: tailwind.colors.orange,

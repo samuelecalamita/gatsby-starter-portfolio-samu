@@ -33,7 +33,7 @@ const ProjectsWrapper = styled.div`
 `;
 
 const AboutHero = styled.div`
-  ${tw`flex flex-col lg:flex-row items-center mt-8`};
+  ${tw`mt-8`};
 `;
 
 const Avatar = styled.img`
@@ -41,11 +41,15 @@ const Avatar = styled.img`
 `;
 
 const AboutSub = styled.p`
-  ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  ${tw`text-white pt-12 lg:pt-0 text-2xl lg:text-3xl xl:text-4xl`};
+`;
+
+const AboutSubtitle = styled.h3`
+  ${tw`text-2xl lg:text-3xl font-serif text-white mt-8 pt-6 md:pt-12`};
 `;
 
 const AboutDesc = styled.p`
-  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
+  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans text-justify`};
 `;
 
 const ContactText = styled.p`
@@ -68,8 +72,8 @@ const Index = () => (
         </BigTitle>
         <Subtitle>
           Let' s chat:{" "}
-          <a href="mailto:kontakt@samuelecalamita.de" title="Let´s chat!">
-            kontakt@samuelecalamita.de
+          <a href="mailto:hi@samuelecalamita.de" title="Let´s chat!">
+            hi@samuelecalamita.de
           </a>
         </Subtitle>
       </Hero>
@@ -78,19 +82,35 @@ const Index = () => (
         <AboutHero>
           {/* <Avatar src={avatar} alt="Samuele Calamita Bild" /> */}
           <AboutSub>
-            Mit großer Leidenschaft habe ich mich Jahr für Jahr in der
-            digitalen, technischen Welt weitergebildet.
+            Hi, ich bin Samuele. Ich komme aus Italien und lebe seit mehr als 5
+            Jahren mit meiner Frau und unserem Kater Loui in Berlin. Derzeit
+            arbeite ich als Frontend Developer bei der{" "}
+            <a
+              href="https://www.pinuts.de/"
+              title="Pinuts Website besuchen..."
+              target="_blank"
+            >
+              Pinuts media+science GmbH
+            </a>
+            .
           </AboutSub>
         </AboutHero>
+        <AboutSubtitle>Meine Skills</AboutSubtitle>
         <AboutDesc>
-          Der Beruf des Frontenddevelopers ist ein Traum für mich, weil mich
-          schon seit der Berufsschule fasziniert, technische Lösungen und
-          Logiken zu entwickeln sowie komplexe Stukturen zu realisieren.
+          <strong>Semantisches HTML</strong> (Jade, Pug, AMP Grundlagen),{" "}
+          <strong>CSS</strong> (Sass, Scss, Less, BEM, CSS Animationen){" "}
+          <strong>Javascript</strong> (jQuery, ES6, React Grundlagen, GatsbyJS
+          Grundlagen) <strong>SVG</strong>, <strong>Accessibility</strong>,{" "}
+          <strong>Responsive-Verhalten</strong>,{" "}
+          <strong>Frontend-Frameworks</strong> (Bootstrap 3 und 4, Foundation,
+          Foundation for Emails) <strong>Task Runner</strong> (Grunt, Gulp){" "}
+          <strong>Sonstige Kenntnisse</strong> Sketch (Asset Management,
+          InVision, Scrum Grundlagen, Jira, Confluence)
         </AboutDesc>
       </About>
       <Contact offset={2}>
         <Inner>
-          <Title>Get in touch</Title>
+          <Title>Kontakt</Title>
           <ContactText>
             Sag <a href="mailto:samuelecalamita@gmail.com">Hallo</a> oder besuch
             mich hier:{" "}

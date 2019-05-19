@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
       width: 100%;
       max-width: 160px;
       height: 50%;
-      background: rgba(255,255,255,0.45);
+      background: rgba(81,227,52,0.3);
       transition: all 0.3s ease-in-out;
       transform-origin: left;
       transform: scaleX(0);
