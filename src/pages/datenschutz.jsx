@@ -32,8 +32,8 @@ const Index = () => (
         <Layout />
         <ImpressumText>
           <Link to="/">Zurück</Link>
-          <BigTitle>Impressum</BigTitle>
-          <h3>1. Datenschutz auf einen Blick</h3>
+          <BigTitle>Datenschutz&shy;erkl&auml;rung</BigTitle>
+          <h2>1. Datenschutz auf einen Blick</h2>
           <h3>Allgemeine Hinweise</h3>{" "}
           <p>
             Die folgenden Hinweise geben einen einfachen &Uuml;berblick
@@ -144,9 +144,11 @@ const Index = () => (
           </p>{" "}
           <p>Samuele Calamita</p>
           <p>
-            Telefon: &#91;Telefonnummer der verantwortlichen Stelle&#93;
+            Telefon: +49 176 43323537
             <br />
             E-Mail: samuelecalamita@gmail.com
+            <br />
+            Adresse: Triftstraß3 37, 13353 Berlin
           </p>
           <p>
             Verantwortliche Stelle ist die nat&uuml;rliche oder juristische

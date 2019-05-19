@@ -71,7 +71,7 @@ const Index = () => (
           Frontend Developer
         </BigTitle>
         <Subtitle>
-          Let' s chat:{" "}
+          Let's chat:{" "}
           <a href="mailto:hi@samuelecalamita.de" title="Let´s chat!">
             hi@samuelecalamita.de
           </a>
@@ -132,7 +132,8 @@ const Index = () => (
           </ContactText>
         </Inner>
         <Footer>
-          &copy; 2019 by Samuele Calamita <Link to="/impressum">IMPRESSUM</Link>
+          &copy; 2019 by Samuele Calamita{" "}
+          <Link to="/datenschutz">Datenschutz</Link>
         </Footer>
       </Contact>
     </Parallax>
