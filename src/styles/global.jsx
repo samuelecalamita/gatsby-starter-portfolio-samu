@@ -46,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+
+  noscript {
+    color: #ffffff;
+  }
 `;
 
 export default GlobalStyle;
