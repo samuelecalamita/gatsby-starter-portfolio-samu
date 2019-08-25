@@ -6,6 +6,10 @@ import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import { waveAnimation } from "../styles/animations";
 
+const Wrapper = styled.div`
+  ${tw`w-full xl:w-2/3`};
+`;
+
 const WaveWrapper = styled.div`
   ${tw`absolute pin-b w-full`};
   transform: matrix(1, 0, 0, -1, 0, 0);
@@ -45,7 +49,7 @@ const Contact = ({ children, offset }) => (
       </WaveWrapper>
     </Divider>
     <Content speed={0.4} offset={offset}>
-      {children}
+      <Wrapper>{children}</Wrapper>
     </Content>
   </>
 );

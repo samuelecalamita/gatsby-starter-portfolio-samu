@@ -4,8 +4,14 @@ import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import Inner from "../elements/Inner";
 import { colors } from "../../tailwind";
+import styled from "styled-components";
+import tw from "tailwind.macro";
 import SVG from "../components/SVG";
 import { UpDown, UpDownWide, waveAnimation } from "../styles/animations";
+
+const Wrapper = styled.div`
+  ${tw`w-full xl:w-2/3`};
+`;
 
 const About = ({ children, offset }) => (
   <>
@@ -16,7 +22,9 @@ const About = ({ children, offset }) => (
       offset={offset}
     />
     <Content speed={0.4} offset={offset}>
-      <Inner>{children}</Inner>
+      <Wrapper>
+        <Inner>{children}</Inner>
+      </Wrapper>
     </Content>
   </>
 );
