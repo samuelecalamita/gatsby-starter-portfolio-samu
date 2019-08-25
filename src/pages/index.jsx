@@ -31,11 +31,11 @@ const ProjectsWrapper = styled.div`
 `;
 
 const AboutHero = styled.div`
-  ${tw`mt-8`};
+  ${tw`mt-8 font-sans`};
 `;
 
 const AboutSub = styled.p`
-  ${tw`text-white pt-12 lg:pt-0 text-2xl lg:text-3xl xl:text-4xl`};
+  ${tw`text-white pt-12 lg:pt-0 text-2xl lg:text-3xl xl:text-3xl`};
 `;
 
 const AboutSubtitle = styled.h3`
@@ -43,7 +43,7 @@ const AboutSubtitle = styled.h3`
 `;
 
 const AboutDesc = styled.p`
-  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans`};
+  ${tw`text-grey-light text-lg md:text-xl text-2xl lg:text-3xl xl:text-3xl font-sans`};
 `;
 
 const ContactText = styled.p`
@@ -76,8 +76,8 @@ const Index = () => (
         <AboutHero>
           <AboutSub>
             Hi, ich bin Samuele. Ich komme aus Italien und lebe seit mehr als 5
-            Jahren mit meiner Frau und unserem Kater Loui in Berlin. Derzeit
-            arbeite ich als Frontend Developer bei der{" "}
+            Jahren mit in Berlin. Derzeit arbeite ich als Frontend Developer bei
+            der{" "}
             <a
               href="https://www.pinuts.de/"
               title="Pinuts Website besuchen..."
