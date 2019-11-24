@@ -91,12 +91,17 @@ const BackgroundVideo = styled.div`
   } 
 `;
 
-if (typeof window !== `undefined`) {
-  var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-}
-const renderVideo = isChrome === true ? "webm" : "mp4";
 
-const Index = () => (
+const Index = () => {
+  
+  useEffect(()=> {
+    const  isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+    const renderVideo = isChrome === true ? "webm" : "mp4";
+    return renderVideo;
+  });
+
+return (
+
   <>
     <Layout />
       <BackgroundVideo>
@@ -191,6 +196,6 @@ const Index = () => (
       </Contact>
     </Parallax>
   </>
-);
+)};
 
 export default Index;
