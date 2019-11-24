@@ -1,34 +1,44 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import { Link } from "gatsby";
 import tw from "tailwind.macro";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
-
-// Components
 import Layout from "../components/Layout";
-
-// Elements
 import Inner from "../elements/Inner";
 import { Title, BigTitle, Subtitle } from "../elements/Titles";
-
-// Views
+import Avatar from "../images/avatar.jpg";
 import Hero from "../views/Hero";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
-const ProjectsWrapper = styled.div`
-  ${tw`flex flex-wrap justify-between mt-8`};
-  display: grid;
-  grid-gap: 4rem;
-  grid-template-columns: repeat(2, 1fr);
-  @media (max-width: 1200px) {
-    grid-gap: 3rem;
+const toRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+    filter: blur(5px);
   }
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-gap: 2rem;
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
   }
-`;
+`
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+`
+
+const ToRightAnimation = styled.span`
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-25px);
+  animation: 1s ease-out ${props => props.delay || "0"}s forwards ${toRight};
+`
 
 const AboutHero = styled.div`
   ${tw`mt-8 font-sans`};
@@ -54,20 +64,61 @@ const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
+const BackgroundVideo = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  video {
+    object-fit: cover;
+    min-height: 100vh;
+    width: 100%;
+    opacity: 0;
+    animation: 5s ease-out 1.5s forwards ${fadeIn};
+  }
+
+  &:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(1,1,87,0.9);
+  } 
+`;
+
+const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+const renderVideo = isChrome === true ? "webm" : "mp4";
+
 const Index = () => (
   <>
     <Layout />
+      <BackgroundVideo>
+        <video loop autoPlay muted>
+          <source src={`a-spasso.${renderVideo}`} type={`video/${renderVideo}`} />
+          Your browser does not support the video tag.
+        </video>
+      </BackgroundVideo>
     <Parallax pages={3}>
       <Hero offset={0}>
         <BigTitle>
-          Hi, ich bin Samuele.
+          <ToRightAnimation delay="0.5">
+            Hi, ich bin Samuele.
+          </ToRightAnimation>
           <br />
-          Frontend Developer
+          <ToRightAnimation delay="1">
+            Frontend Developer
+          </ToRightAnimation>
         </BigTitle>
         <Subtitle>
-          Let's{" "}
           <a href="mailto:samuelecalamita@gmail.com" title="Let´s chat!">
-            chat
+            <ToRightAnimation delay="1.5">
+              Get in Touch
+            </ToRightAnimation>
           </a>
         </Subtitle>
       </Hero>
@@ -76,16 +127,15 @@ const Index = () => (
         <AboutHero>
           <AboutSub>
             Hi, ich bin Samuele. Ich komme aus Italien und lebe seit mehr als 5
-            Jahren in Berlin. Derzeit arbeite ich als Frontend Developer bei
-            der{" "}
+            Jahren in Berlin. Nach drei Jahren Erfahrung bei Pinuts media+science,
+             derzeit arbeite ich als Frontend Developer bei{" "}
             <a
-              href="https://www.pinuts.de/"
-              title="Pinuts Website besuchen..."
+              href="https://www.pro-vision.de/"
+              title="pro!vision Website besuchen..."
               target="_blank"
             >
-              Pinuts media+science GmbH
+              pro!vision
             </a>
-            .
           </AboutSub>
 
           <AboutSubtitle>Meine Skills</AboutSubtitle>
@@ -114,14 +164,21 @@ const Index = () => (
               title="Gehe zu: Samuele Calamita Xing Profil"
             >
               Xing
-            </a>{" "}
-            &{" "}
+            </a>{", "}
             <a
               href="https://www.linkedin.com/in/samuele-calamita-556491117"
               target="_blank"
               title="Gehe zu: Samuele Calamita LinkedIn Profil"
             >
               LinkedIn
+            </a>
+            {", "}
+            <a
+              href="https://www.github.com/samuelecalamita"
+              target="_blank"
+              title="Gehe zu: Samuele Calamita Github Profil"
+            >
+              Github
             </a>
           </ContactText>
         </Inner>

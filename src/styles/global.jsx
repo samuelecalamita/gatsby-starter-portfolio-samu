@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: #010157;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
