@@ -92,110 +92,120 @@ const BackgroundVideo = styled.div`
 `;
 
 
-const Index = () => {
   
-  useEffect(()=> {
+class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      renderVideo: "webm"
+    }
+  }
+  
+
+  componentDidMount() {
     const  isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
     const renderVideo = isChrome === true ? "webm" : "mp4";
-    return renderVideo;
-  });
+    this.setState({renderVideo});
+  }
 
-return (
-
-  <>
-    <Layout />
-      <BackgroundVideo>
-        <video loop autoPlay muted>
-          <source src={`a-spasso.${renderVideo}`} type={`video/${renderVideo}`} />
-          Your browser does not support the video tag.
-        </video>
-      </BackgroundVideo>
-    <Parallax pages={3}>
-      <Hero offset={0}>
-        <BigTitle>
-          <ToRightAnimation delay="0.5">
-            Hi, ich bin Samuele.
-          </ToRightAnimation>
-          <br />
-          <ToRightAnimation delay="1">
-            Frontend Developer
-          </ToRightAnimation>
-        </BigTitle>
-        <Subtitle>
-          <a href="mailto:samuelecalamita@gmail.com" title="Let´s chat!">
-            <ToRightAnimation delay="1.5">
-              Get in Touch
+  render() { 
+    return ( 
+      <>
+      <Layout />
+        <BackgroundVideo>
+          <video loop autoPlay muted>
+            <source src={`a-spasso.${this.state.renderVideo}`} type={`video/${this.state.renderVideo}`} />
+            Your browser does not support the video tag.
+          </video>
+        </BackgroundVideo>
+      <Parallax pages={3}>
+        <Hero offset={0}>
+          <BigTitle>
+            <ToRightAnimation delay="0.5">
+              Hi, ich bin Samuele.
             </ToRightAnimation>
-          </a>
-        </Subtitle>
-      </Hero>
-      <About offset={1}>
-        <Title>About</Title>
-        <AboutHero>
-          <AboutSub>
-            Hi, ich bin Samuele. Ich komme aus Italien und lebe seit mehr als 5
-            Jahren in Berlin. Nach drei Jahren Erfahrung bei Pinuts media+science,
-             derzeit arbeite ich als Frontend Developer bei{" "}
-            <a
-              href="https://www.pro-vision.de/"
-              title="pro!vision Website besuchen..."
-              target="_blank"
-            >
-              pro!vision
+            <br />
+            <ToRightAnimation delay="1">
+              Frontend Developer
+            </ToRightAnimation>
+          </BigTitle>
+          <Subtitle>
+            <a href="mailto:samuelecalamita@gmail.com" title="Let´s chat!">
+              <ToRightAnimation delay="1.5">
+                Get in Touch
+              </ToRightAnimation>
             </a>
-          </AboutSub>
-
-          <AboutSubtitle>Meine Skills</AboutSubtitle>
-          <AboutDesc>
-            <strong>Semantisches HTML</strong> (Jade, Pug, AMP Grundlagen),{" "}
-            <strong>CSS</strong> (Sass, Scss, Less, BEM, CSS Animationen),{" "}
-            <strong>Javascript</strong> (jQuery, ES6, React Grundlagen, GatsbyJS
-            Grundlagen), <strong>SVG</strong>, <strong>Accessibility</strong>,{" "}
-            <strong>Responsive-Verhalten</strong>,{" "}
-            <strong>Frontend-Frameworks</strong> (Bootstrap 3 und 4, Foundation,
-            Foundation for Emails), <strong>Task Runner</strong> (Grunt, Gulp),{" "}
-            <strong>Sonstige Kenntnisse</strong> Sketch, InVision, Scrum
-            Grundlagen, Jira, Confluence.
-          </AboutDesc>
-        </AboutHero>
-      </About>
-      <Contact offset={2}>
-        <Inner>
-          <Title>Kontakt</Title>
-          <ContactText>
-            Sag <a href="mailto:samuelecalamita@gmail.com">Hallo</a> oder besuch
-            mich hier:{" "}
-            <a
-              href="https://www.xing.com/profile/Samuele_Calamita/cv"
-              target="_blank"
-              title="Gehe zu: Samuele Calamita Xing Profil"
-            >
-              Xing
-            </a>{", "}
-            <a
-              href="https://www.linkedin.com/in/samuele-calamita-556491117"
-              target="_blank"
-              title="Gehe zu: Samuele Calamita LinkedIn Profil"
-            >
-              LinkedIn
-            </a>
-            {", "}
-            <a
-              href="https://www.github.com/samuelecalamita"
-              target="_blank"
-              title="Gehe zu: Samuele Calamita Github Profil"
-            >
-              Github
-            </a>
-          </ContactText>
-        </Inner>
-        <Footer>
-          &copy; 2019 by Samuele Calamita{" "}
-          <Link to="/datenschutz">Datenschutz</Link>
-        </Footer>
-      </Contact>
-    </Parallax>
-  </>
-)};
-
+          </Subtitle>
+        </Hero>
+        <About offset={1}>
+          <Title>About</Title>
+          <AboutHero>
+            <AboutSub>
+              Hi, ich bin Samuele. Ich komme aus Italien und lebe seit mehr als 5
+              Jahren in Berlin. Nach drei Jahren Erfahrung bei Pinuts media+science,
+               derzeit arbeite ich als Frontend Developer bei{" "}
+              <a
+                href="https://www.pro-vision.de/"
+                title="pro!vision Website besuchen..."
+                target="_blank"
+              >
+                pro!vision
+              </a>
+            </AboutSub>
+  
+            <AboutSubtitle>Meine Skills</AboutSubtitle>
+            <AboutDesc>
+              <strong>Semantisches HTML</strong> (Jade, Pug, AMP Grundlagen),{" "}
+              <strong>CSS</strong> (Sass, Scss, Less, BEM, CSS Animationen),{" "}
+              <strong>Javascript</strong> (jQuery, ES6, React Grundlagen, GatsbyJS
+              Grundlagen), <strong>SVG</strong>, <strong>Accessibility</strong>,{" "}
+              <strong>Responsive-Verhalten</strong>,{" "}
+              <strong>Frontend-Frameworks</strong> (Bootstrap 3 und 4, Foundation,
+              Foundation for Emails), <strong>Task Runner</strong> (Grunt, Gulp),{" "}
+              <strong>Sonstige Kenntnisse</strong> Sketch, InVision, Scrum
+              Grundlagen, Jira, Confluence.
+            </AboutDesc>
+          </AboutHero>
+        </About>
+        <Contact offset={2}>
+          <Inner>
+            <Title>Kontakt</Title>
+            <ContactText>
+              Sag <a href="mailto:samuelecalamita@gmail.com">Hallo</a> oder besuch
+              mich hier:{" "}
+              <a
+                href="https://www.xing.com/profile/Samuele_Calamita/cv"
+                target="_blank"
+                title="Gehe zu: Samuele Calamita Xing Profil"
+              >
+                Xing
+              </a>{", "}
+              <a
+                href="https://www.linkedin.com/in/samuele-calamita-556491117"
+                target="_blank"
+                title="Gehe zu: Samuele Calamita LinkedIn Profil"
+              >
+                LinkedIn
+              </a>
+              {", "}
+              <a
+                href="https://www.github.com/samuelecalamita"
+                target="_blank"
+                title="Gehe zu: Samuele Calamita Github Profil"
+              >
+                Github
+              </a>
+            </ContactText>
+          </Inner>
+          <Footer>
+            &copy; 2019 by Samuele Calamita{" "}
+            <Link to="/datenschutz">Datenschutz</Link>
+          </Footer>
+        </Contact>
+      </Parallax>
+    </>
+     )
+  }
+}
+ 
 export default Index;
