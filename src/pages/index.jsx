@@ -91,7 +91,9 @@ const BackgroundVideo = styled.div`
   } 
 `;
 
-const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+if (typeof window !== `undefined`) {
+  var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+}
 const renderVideo = isChrome === true ? "webm" : "mp4";
 
 const Index = () => (
