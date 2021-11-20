@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -50,6 +50,11 @@ const GlobalStyle = createGlobalStyle`
   noscript {
     color: #ffffff;
   }
-`;
 
-export default GlobalStyle;
+  abbr,
+  abbr[title] {
+    text-decoration: none;
+  }
+`
+
+export default GlobalStyle
