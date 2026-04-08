@@ -202,6 +202,15 @@ abbr[title] {
   animation-delay: 1.5s;
 }
 
+.panel--about .section__title,
+.panel--about .section__body,
+.panel--contact .section__title,
+.panel--contact .section__body,
+.panel--contact .footer {
+  opacity: 1;
+  transform: none;
+}
+
 .panel__divider {
   position: absolute;
   inset: 0;
@@ -331,6 +340,32 @@ abbr[title] {
   }
 }
 
+@supports (animation-timeline: view()) {
+  .panel--about .section__title,
+  .panel--about .section__body,
+  .panel--contact .section__title,
+  .panel--contact .section__body,
+  .panel--contact .footer {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation-name: section-reveal;
+    animation-duration: 1ms;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+    animation-timeline: view();
+    animation-range: entry 15% cover 36%;
+  }
+
+  .panel--about .section__body,
+  .panel--contact .section__body {
+    animation-range: entry 18% cover 40%;
+  }
+
+  .panel--contact .footer {
+    animation-range: entry 22% cover 42%;
+  }
+}
+
 @keyframes landing-to-right {
   from {
     opacity: 0;
@@ -366,5 +401,17 @@ abbr[title] {
 
   100% {
     d: path("M 0 100 Q 150 350 400 200 Q 650 50 800 300 L 800 0 L 0 0 L 0 100 Z");
+  }
+}
+
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
