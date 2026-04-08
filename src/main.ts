@@ -1,5 +1,3 @@
-import "./styles.css";
-
 const canvasElement = document.querySelector<HTMLCanvasElement>("#canvas");
 
 async function initBackground(): Promise<void> {
