@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 const canvasElement = document.querySelector<HTMLCanvasElement>("#canvas");
 const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -5,9 +7,6 @@ async function initBackground(): Promise<void> {
   if (!canvasElement) {
     return;
   }
-
-  const moduleUrl = "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
-  const THREE = (await import(/* @vite-ignore */ moduleUrl)) as any;
 
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);

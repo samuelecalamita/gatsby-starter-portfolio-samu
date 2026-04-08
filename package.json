@@ -13,7 +13,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/three": "^0.183.1",
     "typescript": "5.9.2",
     "vite": "7.1.4"
+  },
+  "dependencies": {
+    "@fontsource/cantata-one": "^5.2.8",
+    "@fontsource/open-sans": "^5.2.7",
+    "three": "^0.183.2"
   }
 }

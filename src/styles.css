@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Cantata+One&family=Open+Sans:wght@400;600&display=swap");
+@import "@fontsource/cantata-one";
+@import "@fontsource/open-sans/400.css";
+@import "@fontsource/open-sans/600.css";
 
 :root {
   --color-background: #010157;
@@ -276,6 +278,57 @@ abbr[title] {
   text-align: center;
   color: #9babb4;
   font-size: 1rem;
+}
+
+.footer__links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+.legal-page {
+  min-height: 100vh;
+  padding: 3rem 1.5rem 5rem;
+  background:
+    radial-gradient(circle at top left, rgba(160, 216, 241, 0.08), transparent 20%),
+    linear-gradient(180deg, rgba(1, 1, 87, 0.94), rgba(1, 1, 87, 1));
+}
+
+.legal-page__inner {
+  width: min(100%, 52rem);
+  margin: 0 auto;
+}
+
+.legal-page__back {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.legal-page__title {
+  margin: 0 0 1.5rem;
+  font-family: "Cantata One", Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.legal-page__section {
+  margin-top: 2rem;
+}
+
+.legal-page__section h2 {
+  margin: 0 0 0.75rem;
+  font-family: "Cantata One", Georgia, serif;
+  font-size: 1.5rem;
+}
+
+.legal-page__section p,
+.legal-page__section li {
+  color: var(--color-text-soft);
+  line-height: 1.75;
+}
+
+.legal-page__section ul {
+  padding-left: 1.2rem;
 }
 
 @media (min-width: 900px) {
