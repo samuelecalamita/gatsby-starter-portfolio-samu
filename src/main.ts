@@ -1,4 +1,5 @@
 const canvasElement = document.querySelector<HTMLCanvasElement>("#canvas");
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 async function initBackground(): Promise<void> {
   if (!canvasElement) {
@@ -133,6 +134,11 @@ async function initBackground(): Promise<void> {
   function tick(): void {
     uniforms.uTime.value = clock.getElapsedTime();
     renderer.render(scene, camera);
+
+    if (reduceMotionQuery.matches) {
+      return;
+    }
+
     window.requestAnimationFrame(tick);
   }
 

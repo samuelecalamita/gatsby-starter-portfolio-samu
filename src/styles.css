@@ -65,6 +65,16 @@ a:focus::before {
   transform: scaleX(1);
 }
 
+a:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 abbr,
 abbr[title] {
   text-decoration: none;
@@ -288,6 +298,36 @@ abbr[title] {
 
   .section__title {
     margin-top: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero__line {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .section__title::before,
+  .panel__divider--contact path {
+    animation: none !important;
+  }
+
+  .landing__canvas {
+    opacity: 0.82;
   }
 }
 
