@@ -2,11 +2,22 @@ import * as THREE from "three";
 
 const canvasElement = document.querySelector<HTMLCanvasElement>("#canvas");
 const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const mobileQuery = window.matchMedia("(max-width: 899px)");
+const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+const rootElement = document.documentElement;
 
 async function initBackground(): Promise<void> {
   if (!canvasElement) {
     return;
   }
+
+  if (reduceMotionQuery.matches) {
+    canvasElement.hidden = true;
+    return;
+  }
+
+  rootElement.classList.add("has-enhanced-background");
+  const isMobileLike = mobileQuery.matches || coarsePointerQuery.matches;
 
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -110,7 +121,9 @@ async function initBackground(): Promise<void> {
   function setSize(): void {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    const pixelRatio = isMobileLike
+      ? Math.min(window.devicePixelRatio || 1, 1)
+      : Math.min(window.devicePixelRatio || 1, 2);
 
     renderer.setPixelRatio(pixelRatio);
     renderer.setSize(width, height, false);
@@ -118,6 +131,10 @@ async function initBackground(): Promise<void> {
   }
 
   function handlePointerMove(event: PointerEvent): void {
+    if (isMobileLike) {
+      return;
+    }
+
     uniforms.uPointer.value.set(
       event.clientX / window.innerWidth,
       1 - event.clientY / window.innerHeight
@@ -129,19 +146,85 @@ async function initBackground(): Promise<void> {
   window.addEventListener("pointermove", handlePointerMove, { passive: true });
 
   const clock = new THREE.Clock();
+  let animationFrameId = 0;
+  let lastFrameTime = 0;
+  let isRunning = true;
 
-  function tick(): void {
-    uniforms.uTime.value = clock.getElapsedTime();
-    renderer.render(scene, camera);
-
-    if (reduceMotionQuery.matches) {
+  function renderFrame(time: number): void {
+    if (!isRunning) {
       return;
     }
 
-    window.requestAnimationFrame(tick);
+    const targetFrameDuration = isMobileLike ? 1000 / 12 : 1000 / 30;
+
+    if (time - lastFrameTime < targetFrameDuration) {
+      animationFrameId = window.requestAnimationFrame(renderFrame);
+      return;
+    }
+
+    lastFrameTime = time;
+    uniforms.uTime.value = clock.getElapsedTime();
+    renderer.render(scene, camera);
+    animationFrameId = window.requestAnimationFrame(renderFrame);
   }
 
-  tick();
+  function stop(): void {
+    isRunning = false;
+    if (animationFrameId) {
+      window.cancelAnimationFrame(animationFrameId);
+    }
+  }
+
+  function start(): void {
+    if (document.hidden) {
+      return;
+    }
+
+    if (isRunning) {
+      return;
+    }
+
+    isRunning = true;
+    lastFrameTime = 0;
+    clock.start();
+    animationFrameId = window.requestAnimationFrame(renderFrame);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stop();
+      return;
+    }
+
+    start();
+  });
+
+  animationFrameId = window.requestAnimationFrame(renderFrame);
 }
 
-void initBackground();
+function startBackgroundWhenIdle(): void {
+  const run = () => {
+    window.setTimeout(() => {
+      void initBackground();
+    }, mobileQuery.matches || coarsePointerQuery.matches ? 1800 : 1200);
+  };
+
+  if ("requestIdleCallback" in window) {
+    (
+      window as Window & {
+        requestIdleCallback: (callback: IdleRequestCallback) => number;
+      }
+    ).requestIdleCallback(() => {
+      run();
+    });
+    return;
+  }
+
+  run();
+}
+
+if (document.readyState === "complete") {
+  startBackgroundWhenIdle();
+} else {
+  window.addEventListener("load", startBackgroundWhenIdle, { once: true });
+}
